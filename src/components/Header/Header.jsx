@@ -6,6 +6,13 @@ import {startGame, stopGame} from "../../redux/reducer";
 
 
 function Header(props) {
+
+    let overGame = () => {
+        alert(`You hit ${props.score} ${props.score === 1?'time':'times'}! 
+        You miss ${props.miss} ${props.miss === 1?'time':'times'}!`);
+        props.stopGame();
+    };
+
     
     return (
         <header className={styles.container}>
@@ -18,15 +25,17 @@ function Header(props) {
                         START GAME
                     </button>
                 }
-                {props.time <= 0?props.stopGame():null}
+                {props.time === 0?overGame():null}
             </div>
         </header>
     );
 }
 
 let mapDispatchToProps = (state) => ({
-    time: state.main.time,
+    score: state.main.score,
     isButtonPressed: state.main.isButtonPressed,
+    time: state.main.time,
+    miss: state.main.miss,
 });
 
 
