@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/game-catch-dog-react/static/css/main.b474c601.chunk.css",
+    "main.js": "/game-catch-dog-react/static/js/main.16ac70cb.chunk.js",
+    "main.js.map": "/game-catch-dog-react/static/js/main.16ac70cb.chunk.js.map",
+    "runtime-main.js": "/game-catch-dog-react/static/js/runtime-main.63b67089.js",
+    "runtime-main.js.map": "/game-catch-dog-react/static/js/runtime-main.63b67089.js.map",
+    "static/js/2.ea62f8e7.chunk.js": "/game-catch-dog-react/static/js/2.ea62f8e7.chunk.js",
+    "static/js/2.ea62f8e7.chunk.js.map": "/game-catch-dog-react/static/js/2.ea62f8e7.chunk.js.map",
+    "index.html": "/game-catch-dog-react/index.html",
+    "precache-manifest.de67508703d77eafb9a948acb7cf8760.js": "/game-catch-dog-react/precache-manifest.de67508703d77eafb9a948acb7cf8760.js",
+    "service-worker.js": "/game-catch-dog-react/service-worker.js",
+    "static/css/main.b474c601.chunk.css.map": "/game-catch-dog-react/static/css/main.b474c601.chunk.css.map",
+    "static/media/Dog.jpg": "/game-catch-dog-react/static/media/Dog.21374653.jpg",
+    "static/media/dogs.mp3": "/game-catch-dog-react/static/media/dogs.2ef44bc1.mp3"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.63b67089.js",
+    "static/js/2.ea62f8e7.chunk.js",
+    "static/css/main.b474c601.chunk.css",
+    "static/js/main.16ac70cb.chunk.js"
+  ]
+}
