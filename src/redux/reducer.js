@@ -10,7 +10,6 @@ import dog8 from '../assets/dog8.jpg';
 
 
 const START_GAME = 'START_GAME';
-const CHANGE_SCORE = 'CHANGE_SCORE';
 const CLICK_ON_IMAGE = 'CLICK_ON_IMAGE';
 const STOP_GAME = 'STOP_GAME';
 const CLICK_TO_MISS = 'CLICK_TO_MISS';
@@ -120,17 +119,16 @@ const reducer = (state = initialState, action) => {
 
         case SET_EMPTY_VALUE:
             return {...state };
-            
+
         default:
             return state;
     }
 };
 
 export const startGameAC = (timer) => ({type: START_GAME, timer});
-export const changeScore = (score) => ({type: CHANGE_SCORE, score});
-export const clickOnImage = (id) => ({type: CLICK_ON_IMAGE, id});
+export const clickOnImage = () => ({type: CLICK_ON_IMAGE});
 export const stopGameAC = () => ({type: STOP_GAME});
-export const clickToMiss = (id) => ({type: CLICK_TO_MISS, id});
+export const clickToMiss = () => ({type: CLICK_TO_MISS});
 export const changeLevelGame = (level) => ({type: CHANGE_LEVEL_GAME, level});
 export const changePhoto = (img) => ({type: CHANGE_PHOTO, img});
 export const setTimeGame = (time) => ({type: SET_TIME_GAME, time});
