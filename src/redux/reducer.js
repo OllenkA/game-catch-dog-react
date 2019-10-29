@@ -1,4 +1,7 @@
 import dog from '../assets/Dog.jpg';
+import dog1 from '../assets/dog1.jpg';
+import dog2 from '../assets/dog2.jpg';
+import dog3 from '../assets/dog3.jpg';
 
 
 const START_GAME = 'START_GAME';
@@ -6,13 +9,16 @@ const CHANGE_SCORE = 'CHANGE_SCORE';
 const CLICK_ON_IMAGE = 'CLICK_ON_IMAGE';
 const STOP_GAME = 'STOP_GAME';
 const CLICK_TO_MISS = 'CLICK_TO_MISS';
+const CHANGE_LEVEL_GAME = 'CHANGE_LEVEL_GAME';
+const CHANGE_PHOTO = 'CHANGE_PHOTO';
+const SET_TIME_GAME = 'SET_TIME_GAME';
+const SET_EMPTY_VALUE = 'SET_EMPTY_VALUE';
 
 
-export const startGame = () => (dispatch) => {
-    debugger
+export const startGame = () => (dispatch, getState) => {
     let timer = setInterval(() => {
         dispatch(startGameAC(timer))
-    }, 1000);
+    }, getState().main.level);
 };
 
 export const stopGame = () => (dispatch, getState) => {
@@ -38,10 +44,13 @@ const initialState = {
         {id: 8, img: dog, visible: false},
     ],
     score: 0,
-    time: 10,
+    time: 3,
+    defaultTime: 0,
     isButtonPressed: false,
     timer: 0,
     miss: 0,
+    level: 2000,
+    emptyInputValue: '',
 };
 
 
@@ -49,7 +58,6 @@ const reducer = (state = initialState, action) => {
 
     switch (action.type) {
         case START_GAME:
-            debugger
             let newVisibleElement = Math.floor(Math.random() * 9);
             let newArray = state.blocks.map(el => {
                 if (el.id === newVisibleElement) {
@@ -83,7 +91,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 blocks: newArrayAfterStopGame,
-                time: 3,
+                time: state.defaultTime,
                 isButtonPressed: false,
                 score: 0,
                 timer: 0,
@@ -107,6 +115,51 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 miss: state.miss + 1,
             };
+        case CHANGE_LEVEL_GAME:
+            return {
+                ...state,
+                level: action.level,
+            };
+        case CHANGE_PHOTO:
+            debugger
+            let newArrayAfterChangePhoto = state.blocks.map(el => {
+                if(action.img === 'dog'){
+                    return {
+                        ...el,
+                        img: dog,
+                    }
+                } else if(action.img === 'dog1'){
+                    return {
+                        ...el,
+                        img: dog1
+                    }
+                } else if(action.img === 'dog2'){
+                    return {
+                        ...el,
+                        img: dog2,
+                    }
+                }else{
+                    return {
+                        ...el,
+                        img: dog3
+                    }
+                }
+            });
+            return {
+                ...state,
+                blocks: newArrayAfterChangePhoto,
+            };
+        case SET_TIME_GAME:
+            return {
+                ...state,
+                time: action.time,
+                defaultTime: action.time,
+            };
+        case SET_EMPTY_VALUE:
+            return {
+                ...state,
+
+            };
             
         default:
             return state;
@@ -118,6 +171,10 @@ export const changeScore = (score) => ({type: CHANGE_SCORE, score});
 export const clickOnImage = () => ({type: CLICK_ON_IMAGE});
 export const stopGameAC = () => ({type: STOP_GAME});
 export const clickToMiss = () => ({type: CLICK_TO_MISS});
+export const changeLevelGame = (level) => ({type: CHANGE_LEVEL_GAME, level});
+export const changePhoto = (img) => ({type: CHANGE_PHOTO, img});
+export const setTimeGame = (time) => ({type: SET_TIME_GAME, time});
+export const doEmptyValue = () => ({type: SET_EMPTY_VALUE});
 
 
 export default reducer;

@@ -1,3 +1,19 @@
+.wrapper {
+    /*width: 100vw;*/
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.mainBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
 .container {
     width: 700px;
     display: flex;
@@ -5,7 +21,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-
+    align-content: center;
 }
 
 .circle {

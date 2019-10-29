@@ -20,7 +20,7 @@ function Header(props) {
             <div>
                 {props.isButtonPressed && props.time >= 0?
                     <h3>0:{props.time}</h3>:
-                    <button onClick={props.startGame}
+                    <button onClick={(!isNaN(props.time))?props.startGame:null}
                             className={styles.button}>
                         START GAME
                     </button>
