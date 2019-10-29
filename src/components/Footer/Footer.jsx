@@ -11,8 +11,8 @@ function Footer(props) {
                     <legend><h3>YOUR RESULT:</h3></legend>
                     {!props.isButtonPressed?<label>
                         You hit  {props.defaultScore}  {props.defaultScore === 1?'time':'times'},
-                        miss  {props.defaultMiss} {props.defaultMiss === 1?'time':'times'}
-                        for  {props.defaultTime?props.defaultTime:20} time!
+                        miss  {props.defaultMiss} {props.defaultMiss === 1?'time':'times'} for {props.defaultTime?
+                        props.defaultTime:20} time!
                     </label>:<label>Here you will your achievements.</label>
                     }
                 </fieldset>
