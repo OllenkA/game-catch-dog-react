@@ -67,7 +67,7 @@ const initialState = {
     timer: 0,
     miss: 0,
     defaultMiss: 0,
-    level: 2000,
+    level: 1000,
     emptyInputValue: '',
 };
 
@@ -79,33 +79,19 @@ const reducer = (state = initialState, action) => {
             let newVisibleElement = Math.floor(Math.random() * 9);
             let newArray = state.blocks.map(el => {
                 if (el.id === newVisibleElement) {
-                    return {
-                        ...el,
-                        visible: true
-                    }
-                } else {
-                    return {
-                        ...el,
-                        visible: false
-                    }
-                }
-            });
+                    return {...el, visible: true}}
+                else {return {...el, visible: false}}});
             return {
                 ...state,
                 blocks: newArray,
                 isButtonPressed: true,
                 time: state.time - 1,
                 timer: action.timer,
+                // isCirclePressed: true,
             };
 
         case STOP_GAME:
-            let newArrayAfterStopGame = state.blocks.map(el => {
-                    return {
-                        ...el,
-                        visible: false,
-                    }
-            }
-            );
+            let newArrayAfterStopGame = state.blocks.map(el => {return {...el, visible: false}});
             return {
                 ...state,
                 blocks: newArrayAfterStopGame,
@@ -116,56 +102,24 @@ const reducer = (state = initialState, action) => {
                 miss: 0,
             };
 
-        case CHANGE_SCORE:
-            return {
-                ...state,
-                score: state.score + 1,
-            };
-            
         case CLICK_ON_IMAGE:
-            return {
-                ...state,
-                score: state.score + 1,
-                defaultScore: state.score
-            };
+            return {...state, score: state.score + 1, defaultScore: state.score + 1};
             
         case CLICK_TO_MISS:
-            return {
-                ...state,
-                miss: state.miss + 1,
-                defaultMiss: state.miss
-            };
+            return {...state, miss: state.miss + 1, defaultMiss: state.miss + 1};
 
         case CHANGE_LEVEL_GAME:
-            return {
-                ...state,
-                level: action.level,
-            };
+            return {...state, level: action.level};
 
         case CHANGE_PHOTO:
-            let newPhoto = state.blocks.map(el => {
-                return{
-                    ...el,
-                    img: action.img
-                }
-            });
-            return {
-                ...state,
-                blocks: newPhoto,
-                // blocks: newArrayAfterChangePhoto,
-            };
+            let newPhoto = state.blocks.map(el => {return {...el, img: action.img}});
+            return {...state, blocks: newPhoto,};
 
         case SET_TIME_GAME:
-            return {
-                ...state,
-                time: action.time,
-                defaultTime: action.time,
-            };
+            return {...state, time: action.time, defaultTime: action.time,};
 
         case SET_EMPTY_VALUE:
-            return {
-                ...state,
-            };
+            return {...state };
             
         default:
             return state;
@@ -174,9 +128,9 @@ const reducer = (state = initialState, action) => {
 
 export const startGameAC = (timer) => ({type: START_GAME, timer});
 export const changeScore = (score) => ({type: CHANGE_SCORE, score});
-export const clickOnImage = () => ({type: CLICK_ON_IMAGE});
+export const clickOnImage = (id) => ({type: CLICK_ON_IMAGE, id});
 export const stopGameAC = () => ({type: STOP_GAME});
-export const clickToMiss = () => ({type: CLICK_TO_MISS});
+export const clickToMiss = (id) => ({type: CLICK_TO_MISS, id});
 export const changeLevelGame = (level) => ({type: CHANGE_LEVEL_GAME, level});
 export const changePhoto = (img) => ({type: CHANGE_PHOTO, img});
 export const setTimeGame = (time) => ({type: SET_TIME_GAME, time});

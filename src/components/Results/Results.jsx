@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from './Footer.module.css';
+import styles from './Results.module.css';
 import {connect} from "react-redux";
 
 
-function Footer(props) {
+function Results(props) {
     return (
         <footer className={styles.container}>
             <section>
@@ -12,7 +12,7 @@ function Footer(props) {
                     {!props.isButtonPressed?<label>
                         You hit  {props.defaultScore}  {props.defaultScore === 1?'time':'times'},
                         miss  {props.defaultMiss} {props.defaultMiss === 1?'time':'times'} for {props.defaultTime?
-                        props.defaultTime:20} time!
+                        props.defaultTime:20} seconds!
                     </label>:<label>Here you will your achievements.</label>
                     }
                 </fieldset>
@@ -33,4 +33,4 @@ let mapStateToProps = (state) => ({
     }
 );
 
-export default connect(mapStateToProps)(Footer);
+export default connect(mapStateToProps)(Results);
