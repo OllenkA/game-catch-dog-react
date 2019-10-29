@@ -9,15 +9,12 @@ function Footer(props) {
             <section>
                 <fieldset className={styles.level}>
                     <legend><h3>YOUR RESULT:</h3></legend>
-                    {/*{!props.isButtonPressed?<label> You hit  {props.score}  {props.score === 1?'time':'times'},*/}
-                    {/*    miss  {props.miss} {props.miss === 1?'time':'times'} for  {props.defaultTime} time!*/}
-                    {/*</label>:<label>Here you will your achievements.</label>*/}
-
-                    {/*}*/}
-                    <label> You hit  {props.score}  {props.score === 1?'time':'times'},
-                        miss  {props.miss} {props.miss === 1?'time':'times'} for  {props.defaultTime} time!
-                    </label>
-
+                    {!props.isButtonPressed?<label>
+                        You hit  {props.defaultScore}  {props.defaultScore === 1?'time':'times'},
+                        miss  {props.defaultMiss} {props.defaultMiss === 1?'time':'times'}
+                        for  {props.defaultTime?props.defaultTime:20} time!
+                    </label>:<label>Here you will your achievements.</label>
+                    }
                 </fieldset>
             </section>
             <h3>SCORE: {props.score}</h3>
@@ -30,6 +27,8 @@ let mapStateToProps = (state) => ({
         score: state.main.score,
         miss: state.main.miss,
         defaultTime: state.main.defaultTime,
+        defaultMiss: state.main.defaultMiss,
+        defaultScore: state.main.defaultScore,
         isButtonPressed: state.main.isButtonPressed,
     }
 );

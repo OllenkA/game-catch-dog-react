@@ -24,19 +24,16 @@ function MainContent(props) {
         </section>
     });
 
-    return (<article className={styles.mainBlock}>
+    return <article className={styles.mainBlock}>
             <Header/>
-            <main className={styles.wrapper}>
-                <article className={styles.container}>
-                    <audio ref={audioRef} src={gav}/>
-                    {circles}
-                </article>
-            </main>
+            <article className={styles.container}>
+                <audio ref={audioRef} src={gav}/>
+                {circles}
+            </article>
             <aside>
                 <h4>HAPPY GAME!</h4>
             </aside>
         </article>
-    );
 }
 
 

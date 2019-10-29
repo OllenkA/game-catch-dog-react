@@ -12,7 +12,6 @@ function Header(props) {
         You miss ${props.miss} ${props.miss === 1?'time':'times'}!`);
         props.stopGame();
     };
-
     
     return (
         <header className={styles.container}>

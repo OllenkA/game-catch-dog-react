@@ -1,12 +1,27 @@
+.container {
+    width: 460px;
+}
+
 .dog {
-    width: 100px;
-    /*height: 120px;*/
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
 }
 
-.level, .img {
+.level {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-around;
+    /*align-items: flex-start;*/
+}
+
+.time {
+    margin-bottom: 0;
+}
+
+.img {
+    display: flex;
+    flex-direction: row;
     justify-content: flex-start;
-    align-items: flex-start;
+    flex-wrap: wrap;
 }
