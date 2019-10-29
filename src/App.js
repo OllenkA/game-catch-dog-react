@@ -1,15 +1,14 @@
 import React from 'react';
 import './App.css';
-// import MainContent from "./components/MainContent/MainContent";
-import Results from "./components/Results/Results";
 import SettingsContainer from "./components/Settings/SettingsContainer";
 import MainContentComponent from "./components/MainContent/MainContentComponent";
+import ResultsComponent from "./components/Results/ResultsComponent";
 
 function App() {
     return <main className="App">
             <SettingsContainer/>
             <MainContentComponent/>
-            <Results/>
+            <ResultsComponent/>
         </main>
 }
 

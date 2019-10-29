@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './Results.module.css';
-import {connect} from "react-redux";
 
 
 function Results(props) {
@@ -23,14 +22,5 @@ function Results(props) {
     );
 }
 
-let mapStateToProps = (state) => ({
-        score: state.main.score,
-        miss: state.main.miss,
-        defaultTime: state.main.defaultTime,
-        defaultMiss: state.main.defaultMiss,
-        defaultScore: state.main.defaultScore,
-        isButtonPressed: state.main.isButtonPressed,
-    }
-);
 
-export default connect(mapStateToProps)(Results);
+export default Results;

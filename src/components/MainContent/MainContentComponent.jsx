@@ -41,5 +41,4 @@ let mapStateToProps = (state) => ({
     miss: state.main.miss
 });
 
-export default connect(mapStateToProps, {clickOnImage, clickToMiss, startGame, stopGame})
-(MainContentComponent);
+export default connect(mapStateToProps, {clickOnImage, clickToMiss, startGame, stopGame})(MainContentComponent);
