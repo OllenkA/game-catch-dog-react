@@ -3,12 +3,13 @@ import styles from './Settings.module.css';
 import SettingsTime from "./SettingsTime/SettingsTime";
 import SettingsLevel from "./SettingsLevel/SettingsLevel";
 import SettingsPhoto from "./SettingsPhoto/SettingsPhoto";
+import Heading from "../../assets/Heading/Heading";
 
 
 function Settings(props) {
 
     return <aside className={styles.container}>
-        <h2 className={styles.time}>Settings</h2>
+        <Heading title={'Settings'}/>
 
         <SettingsTime addTime={props.addTime}/>
 

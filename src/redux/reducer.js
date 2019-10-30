@@ -1,12 +1,12 @@
-import dog from '../assets/Dog.jpg';
-import dog1 from '../assets/dog1.jpg';
-import dog2 from '../assets/dog2.jpg';
-import dog3 from '../assets/dog3.jpg';
-import dog4 from '../assets/dog4.jpg';
-import dog5 from '../assets/dog5.jpg';
-import dog6 from '../assets/dog6.png'
-import dog7 from '../assets/dog7.jpg';
-import dog8 from '../assets/dog8.jpg';
+import dog from '../assets/images/Dog.jpg';
+import dog1 from '../assets/images/dog1.jpg';
+import dog2 from '../assets/images/dog2.jpg';
+import dog3 from '../assets/images/dog3.jpg';
+import dog4 from '../assets/images/dog4.jpg';
+import dog5 from '../assets/images/dog5.jpg';
+import dog6 from '../assets/images/dog6.png'
+import dog7 from '../assets/images/dog7.jpg';
+import dog8 from '../assets/images/dog8.jpg';
 
 
 const START_GAME = 'START_GAME';

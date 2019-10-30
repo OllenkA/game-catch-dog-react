@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './PlayingField.module.css';
-import gav from '../../../assets/dogs.mp3';
+import gav from '../../../assets/sounds/dogs.mp3';
 
 
 function PlayingField(props) {

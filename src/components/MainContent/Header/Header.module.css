@@ -1,3 +1,17 @@
 .container {
 
 }
+
+.buttonStart, .placeForButton {
+    margin: 10px;
+    padding: 10px;
+
+}
+
+.placeForButton{
+    height: 50px;
+}
+
+.buttonStart {
+    box-shadow: 2px -2px 2px black;
+}

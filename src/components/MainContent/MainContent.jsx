@@ -5,7 +5,6 @@ import PlayingField from "./PlayingField/PlayingField";
 
 
 function MainContent(props) {
-    debugger
 
     return <article>
         <Header overGame={props.overGame}
