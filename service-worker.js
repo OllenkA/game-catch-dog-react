@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/game-catch-dog-react/precache-manifest.0ceec114d68308943b28b506b38914df.js"
+  "/game-catch-dog-react/precache-manifest.2e90cbd3445bc7db7cde01b6d1be5a47.js"
 );
 
 self.addEventListener('message', (event) => {
