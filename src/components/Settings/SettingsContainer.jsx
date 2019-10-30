@@ -26,7 +26,8 @@ function SettingsContainer(props) {
                      getPhoto={getPhoto}
                      addTime={addTime}
                      dogs={props.dogs}
-                     levelArray={props.levelArray}/>
+                     levelArray={props.levelArray}
+    />
 }
 
 let mapStateToProps = (state) => ({

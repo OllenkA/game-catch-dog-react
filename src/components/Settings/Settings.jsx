@@ -9,20 +9,20 @@ import Heading from "../../assets/Heading/Heading";
 function Settings(props) {
 
     return <aside className={styles.container}>
-        <Heading title={'Settings'}/>
+            <Heading title={'Settings'}/>
 
-        <SettingsTime addTime={props.addTime}/>
+            <SettingsTime addTime={props.addTime}/>
 
-        <SettingsLevel  levelArray={props.levelArray}
-                        getLevelGame={props.getLevelGame}/>
+            <SettingsLevel  levelArray={props.levelArray}
+                            getLevelGame={props.getLevelGame}/>
 
-        <SettingsPhoto dogs={props.dogs}
-                       getPhoto={props.getPhoto}/>
+            <SettingsPhoto dogs={props.dogs}
+                           getPhoto={props.getPhoto}/>
 
-        <button>
-            Reset all settings
-        </button>
-    </aside>
+            <button>
+                Reset all settings
+            </button>
+        </aside>
 }
 
 export default Settings;

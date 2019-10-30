@@ -1,12 +1,12 @@
 import React from 'react';
-// import styles from './MainContent.module.css';
+import styles from './MainContent.module.css';
 import Header from "./Header/Header";
 import PlayingField from "./PlayingField/PlayingField";
 
 
 function MainContent(props) {
 
-    return <article>
+    return <article className={styles.main}>
         <Header overGame={props.overGame}
                 time={props.time}
                 isButtonPressed={props.isButtonPressed}

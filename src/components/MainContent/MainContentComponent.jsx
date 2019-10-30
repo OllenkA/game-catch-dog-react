@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {clickOnImage, clickToMiss, startGame, stopGame} from "../../redux/reducer";
+import {changeHiddenSettings, clickOnImage, clickToMiss, startGame, stopGame} from "../../redux/reducer";
 import MainContent from "./MainContent";
 
 
@@ -29,6 +29,7 @@ function MainContentComponent(props) {
                         clickOnImage={props.clickOnImage}
                         clickToMiss={props.clickToMiss}
                         startGame={props.startGame}
+                        changeHiddenSettings={props.changeHiddenSettings}
     />
 }
 
@@ -41,4 +42,5 @@ let mapStateToProps = (state) => ({
     miss: state.main.miss
 });
 
-export default connect(mapStateToProps, {clickOnImage, clickToMiss, startGame, stopGame})(MainContentComponent);
+export default connect(mapStateToProps, {clickOnImage, clickToMiss,
+    startGame, stopGame, changeHiddenSettings})(MainContentComponent);

@@ -16,7 +16,7 @@ const CLICK_TO_MISS = 'CLICK_TO_MISS';
 const CHANGE_LEVEL_GAME = 'CHANGE_LEVEL_GAME';
 const CHANGE_PHOTO = 'CHANGE_PHOTO';
 const SET_TIME_GAME = 'SET_TIME_GAME';
-const SET_EMPTY_VALUE = 'SET_EMPTY_VALUE';
+const HIDDEN_SETTINGS = 'HIDDEN_SETTINGS';
 
 
 export const startGame = () => (dispatch, getState) => {
@@ -54,9 +54,9 @@ const initialState = {
         {id: 8, img: dog, visible: false},
     ],
     levelArray: [
-        {id:1, name: 'Easy', time: 1500},
-        {id:2, name: 'Medium', time: 1000},
-        {id:3, name: 'Hard', time: 700},
+        {id: 1, name: 'Easy', time: 1500},
+        {id: 2, name: 'Medium', time: 1000},
+        {id: 3, name: 'Hard', time: 700},
     ],
     score: 0,
     defaultScore: 0,
@@ -67,7 +67,7 @@ const initialState = {
     miss: 0,
     defaultMiss: 0,
     level: 1000,
-    emptyInputValue: '',
+    isHiddenSettings: true,
 };
 
 
@@ -78,23 +78,27 @@ const reducer = (state = initialState, action) => {
             let newVisibleElement = Math.floor(Math.random() * 9);
             let newArray = state.blocks.map(el => {
                 if (el.id === newVisibleElement) {
-                    return {...el, visible: true}}
-                else {return {...el, visible: false}}});
+                    return {...el, visible: true}
+                } else {
+                    return {...el, visible: false}
+                }
+            });
             return {
                 ...state,
                 blocks: newArray,
                 isButtonPressed: true,
                 time: state.time - 1,
                 timer: action.timer,
-                // isCirclePressed: true,
             };
 
         case STOP_GAME:
-            let newArrayAfterStopGame = state.blocks.map(el => {return {...el, visible: false}});
+            let newArrayAfterStopGame = state.blocks.map(el => {
+                return {...el, visible: false}
+            });
             return {
                 ...state,
                 blocks: newArrayAfterStopGame,
-                time: state.defaultTime?state.defaultTime:20,
+                time: state.defaultTime ? state.defaultTime : 20,
                 isButtonPressed: false,
                 score: 0,
                 timer: 0,
@@ -103,7 +107,7 @@ const reducer = (state = initialState, action) => {
 
         case CLICK_ON_IMAGE:
             return {...state, score: state.score + 1, defaultScore: state.score + 1};
-            
+
         case CLICK_TO_MISS:
             return {...state, miss: state.miss + 1, defaultMiss: state.miss + 1};
 
@@ -111,14 +115,16 @@ const reducer = (state = initialState, action) => {
             return {...state, level: action.level};
 
         case CHANGE_PHOTO:
-            let newPhoto = state.blocks.map(el => {return {...el, img: action.img}});
-            return {...state, blocks: newPhoto,};
+            let newPhoto = state.blocks.map(el => {
+                return {...el, img: action.img}
+            });
+            return {...state, blocks: newPhoto};
 
         case SET_TIME_GAME:
-            return {...state, time: action.time, defaultTime: action.time,};
+            return {...state, time: action.time, defaultTime: action.time};
 
-        case SET_EMPTY_VALUE:
-            return {...state };
+        case HIDDEN_SETTINGS:
+            return {...state, isHiddenSettings: !state.isHiddenSettings};
 
         default:
             return state;
@@ -132,7 +138,7 @@ export const clickToMiss = () => ({type: CLICK_TO_MISS});
 export const changeLevelGame = (level) => ({type: CHANGE_LEVEL_GAME, level});
 export const changePhoto = (img) => ({type: CHANGE_PHOTO, img});
 export const setTimeGame = (time) => ({type: SET_TIME_GAME, time});
-// export const doEmptyValue = () => ({type: SET_EMPTY_VALUE});
+export const changeHiddenSettings = () => ({type: HIDDEN_SETTINGS});
 
 
 export default reducer;

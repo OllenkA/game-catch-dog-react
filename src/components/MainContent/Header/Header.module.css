@@ -1,11 +1,13 @@
 .container {
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .buttonStart, .placeForButton {
     margin: 10px;
     padding: 10px;
-
 }
 
 .placeForButton{
@@ -15,3 +17,4 @@
 .buttonStart {
     box-shadow: 2px -2px 2px black;
 }
+

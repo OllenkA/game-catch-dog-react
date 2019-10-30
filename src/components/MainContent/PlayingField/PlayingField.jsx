@@ -18,9 +18,7 @@ function PlayingField(props) {
     return <article className={styles.container}>
 
                 <audio ref={props.audioRef} src={gav}/>
-
                 {circles}
-
             </article>
 }
 
