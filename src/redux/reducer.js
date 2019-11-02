@@ -9,7 +9,7 @@ import dog7 from '../assets/images/dog7.jpg';
 import dog8 from '../assets/images/dog8.jpg';
 
 
-const START_GAME = 'START_GAME';
+const START_GAME = 'DogGame/START_GAME';
 const CLICK_ON_IMAGE = 'CLICK_ON_IMAGE';
 const STOP_GAME = 'STOP_GAME';
 const CLICK_TO_MISS = 'CLICK_TO_MISS';
@@ -18,17 +18,6 @@ const CHANGE_PHOTO = 'CHANGE_PHOTO';
 const SET_TIME_GAME = 'SET_TIME_GAME';
 const HIDDEN_SETTINGS = 'HIDDEN_SETTINGS';
 
-
-export const startGame = () => (dispatch, getState) => {
-    let timer = setInterval(() => {
-        dispatch(startGameAC(timer))
-    }, getState().main.level);
-};
-
-export const stopGame = () => (dispatch, getState) => {
-    clearInterval(getState().main.timer);
-    dispatch(stopGameAC());
-};
 
 const initialState = {
     dogs: [
@@ -131,14 +120,26 @@ const reducer = (state = initialState, action) => {
     }
 };
 
-export const startGameAC = (timer) => ({type: START_GAME, timer});
+export const startGameSuccess = (timer) => ({type: START_GAME, timer});
 export const clickOnImage = () => ({type: CLICK_ON_IMAGE});
-export const stopGameAC = () => ({type: STOP_GAME});
+export const stopGameSuccess = () => ({type: STOP_GAME});
 export const clickToMiss = () => ({type: CLICK_TO_MISS});
 export const changeLevelGame = (level) => ({type: CHANGE_LEVEL_GAME, level});
 export const changePhoto = (img) => ({type: CHANGE_PHOTO, img});
 export const setTimeGame = (time) => ({type: SET_TIME_GAME, time});
 export const changeHiddenSettings = () => ({type: HIDDEN_SETTINGS});
+
+
+export const startGame = () => (dispatch, getState) => {
+    let timer = setInterval(() => {
+        dispatch(startGameSuccess(timer))
+    }, getState().main.level);
+};
+
+export const stopGame = () => (dispatch, getState) => {
+    clearInterval(getState().main.timer);
+    dispatch(stopGameSuccess());
+};
 
 
 export default reducer;

@@ -1,18 +1,20 @@
 import React from 'react';
-import styles from './HideImage.module.css';
+import styles from './HideMenu.module.css';
 import settings from "../../assets/images/menu.png";
 
 
-function HideImage(props) {
+function HideMenu(props) {
 
     return <figure className={styles.container}>
 
-        <img className={styles.img}
+        <img className={styles.menu}
              src={settings}
              alt={''}
-             onClick={props.changeHiddenSettings}/>
+             onClick={props.onClick}
+
+        />
 
     </figure>
 }
 
-export default HideImage;
+export default HideMenu;

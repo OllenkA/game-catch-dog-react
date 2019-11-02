@@ -1,14 +1,13 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {changeHiddenSettings, clickOnImage, clickToMiss, startGame, stopGame} from "../../redux/reducer";
-import MainContent from "./MainContent";
-
+import MainContent from "./MainContent"
 
 function MainContentComponent(props) {
 
     let audioRef = React.createRef();
 
-    let clickOnDog = () => {
+    let activateDog = () => {
         audioRef.current.currentTime = 0;
         audioRef.current.play();
         props.clickOnImage();
@@ -21,7 +20,7 @@ function MainContentComponent(props) {
     };
 
     return <MainContent overGame={overGame}
-                        clickOnDog={clickOnDog}
+                        clickOnDog={activateDog}
                         blocks={props.blocks}
                         isButtonPressed={props.isButtonPressed}
                         time={props.time}

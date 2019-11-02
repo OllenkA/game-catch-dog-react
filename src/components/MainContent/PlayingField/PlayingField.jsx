@@ -9,17 +9,20 @@ function PlayingField(props) {
         return <section key={el.id}>
             {el.visible ? <img src={el.img} alt={''} className={styles.circle}
                                onClick={props.isButtonPressed
-                                   ? props.clickOnDog : null}/>
+                                   ? props.clickOnDog : null}
+                               aria-disabled={props.isButtonPressed}
+                />
                 : <div className={styles.circle} onClick={props.isButtonPressed
-                    ?props.clickToMiss : null}/>}
+                    ? props.clickToMiss : null}
+                       aria-disabled={props.isButtonPressed}
+                />}
         </section>
     });
 
     return <article className={styles.container}>
-
-                <audio ref={props.audioRef} src={gav}/>
-                {circles}
-            </article>
+        <audio ref={props.audioRef} src={gav}/>
+        {circles}
+    </article>
 }
 
 export default PlayingField;
